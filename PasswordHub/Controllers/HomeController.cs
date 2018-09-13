@@ -18,6 +18,7 @@ namespace PasswordHub.Controllers
         public IActionResult Generation()
         {
             ViewData["Message"] = "Generate a Password";
+            ViewData["Password"] = "";
 
             return View();
         }
@@ -32,6 +33,20 @@ namespace PasswordHub.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult GetPassword()
+        {
+            string Password = "";
+            var letters = new Alphabet();
+            var random = new Random();
+            for (int j = 0; j < 12; j++)
+            {
+                var randomIndex = random.Next(0, letters.al.Length);
+                Password += letters.al[randomIndex];
+            }
+            ViewData["Password"] = Password;
+            return View("Generation");
         }
     }
 }
