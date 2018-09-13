@@ -7,14 +7,17 @@
 <p>Use this area to generate a password</p>
 
 <section>
-    <button asp-controller="Home" asp-action="GetPassword" type="submit">Generate!</button>
-    
-    <p>@ViewData["Password"]</p>        
-    <button>copy to clipboard</button>
+    <form action="" method="post">
+        <button formaction="GetPassword" type="submit">Generate!</button>
+    </form>
+
+    <p>@ViewData["Password"]</p>
     <p>Save to your locker</p>
-    <p>Name of App</p>
-    <textarea></textarea>
-    <p>App Username/Email</p>
-    <textarea></textarea>
-    <button>Save!</button>
+    <form>
+        <p>Name of App</p>
+        <textarea></textarea>
+        <p>App Username/Email</p>
+        <textarea></textarea>
+        <button>Save!</button>
+    </form>
 </section>
